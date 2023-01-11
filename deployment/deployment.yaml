@@ -1,0 +1,51 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fueled-fun-app
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: fueled-fun-app
+  name: deployment-backend
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: backend
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: backend
+    spec:
+      containers:
+      - image: rupgautam/fueled-fun:backend
+        imagePullPolicy: Always
+        name: backend
+        ports:
+        - containerPort: 8080
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: fueled-fun-app
+  name: deployment-frontend
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: frontend
+    spec:
+      containers:
+      - image: rupgautam/fueled-fun:frontend
+        imagePullPolicy: Always
+        name: frontend
+        ports:
+        - containerPort: 3000

@@ -1,0 +1,18 @@
+FROM alpine:3.17.0
+
+LABEL maintainer="rupgautam@gmail.com"
+
+RUN apk update && \
+    apk add --no-cache nginx curl && \
+    mkdir -p /run/nginx/ 
+
+# ADD app.conf /etc/nginx/conf.d/
+ADD ./backend /usr/share/nginx/html/
+
+WORKDIR /usr/share/nginx/html/backend
+
+EXPOSE 8080
+ENTRYPOINT /usr/sbin/nginx -g 'daemon off;'
+
+# Healthz check
+HEALTHCHECK CMD curl --fail http://localhost:8080/ || exit 1

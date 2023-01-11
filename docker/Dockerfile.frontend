@@ -1,0 +1,17 @@
+FROM node:16-alpine
+
+LABEL maintainer="rupgautam@gmail.com"
+
+RUN apk update && \
+    apk add --no-cache nginx curl && \
+    rm /etc/nginx/conf.d/* && \
+    mkdir -p /run/nginx/ 
+
+ADD app.conf /etc/nginx/conf.d/
+ADD index.html /usr/share/nginx/html/
+
+EXPOSE 8080
+ENTRYPOINT /usr/sbin/nginx -g 'daemon off;'
+
+# Healthz check
+HEALTHCHECK CMD curl --fail http://localhost:8080/ || exit 1
