@@ -2,7 +2,11 @@
 
 Summary
 =================
-Configure and deploy two applications, a frontend and a backend, to a multi-environment setup (development, staging, and production) on AWS. I am using Terraform/CDK, Kubernetes (EKS) and Docker in this task. The script is designed to make the frontend application public and the backend service private. I am also implementing auto-scaling and auto-healing for the applications, and ensuring that the applications are properly monitored. I am keeping security, reliability, and observability in mind as I work on the script, to make sure the final solution is robust. I am ensuring the code is well organized, with clear variable naming and is easily readable. I will also be providing necessary documentation and diagrams, as well as Helm charts if needed.
+Configure and deploy two applications, a frontend and a backend, to a multi-environment setup (development, staging, and production) on AWS. Using Terraform/CDK, Kubernetes (EKS) and Docker in this task. 
+
+The script is designed to make the frontend application public and the backend service private. Implemented auto-scaling and auto-healing for the applications, and ensuring that the applications are properly monitored. 
+
+Keeping security, reliability, and observability in mind as I work on the script, to make sure the final solution is robust. I have ensured the code is well organized, with clear variable naming and is easily readable. I have also provided necessary documentation and diagrams, as well as Helm charts if needed.
 ![k8s diagram](https://github.com/rupgautam/prescriptivedata.io/blob/master/k8s-diagram.png?raw=true)
 
 Demos
