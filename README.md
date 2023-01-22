@@ -1,4 +1,4 @@
-# Fueled Fun Project
+# Complete K8s deployment project
 
 Summary
 =================
